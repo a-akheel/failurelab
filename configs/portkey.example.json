@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "Gateway candidate",
+      "adapter": "portkey",
+      "model": "REPLACE_WITH_YOUR_MODEL",
+      "input_cost_per_million": 0,
+      "output_cost_per_million": 0
+    }
+  ],
+  "thresholds": {
+    "task_completion": 1.0,
+    "tool_selection": 1.0,
+    "grounded": 1.0,
+    "policy_compliance": 1.0,
+    "escalation_accuracy": 1.0,
+    "execution_success": 1.0,
+    "p95_latency_ms": 60000,
+    "estimated_cost_usd": 1
+  }
+}

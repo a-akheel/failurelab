@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "Guarded baseline"
+    }
+  ],
+  "thresholds": {
+    "task_completion": 1.0,
+    "tool_selection": 1.0,
+    "grounded": 1.0,
+    "policy_compliance": 1.0,
+    "escalation_accuracy": 1.0,
+    "execution_success": 1.0,
+    "p95_latency_ms": 1000,
+    "estimated_cost_usd": 0
+  }
+}
