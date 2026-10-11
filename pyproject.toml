@@ -1,5 +1,5 @@
 [project]
-name = "agent-evaluation-platform"
+name = "failurelab"
 version = "1.0.0"
 description = "Scenario replay, fault injection, and release gates for support agents"
 requires-python = ">=3.11"

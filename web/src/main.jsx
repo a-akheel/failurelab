@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <header>
-        <b>◈ AGENT / EVAL LAB</b>
+        <b>◈ FAILURELAB</b>
         <span>Replay · Compare · Diagnose</span>
       </header>
       <main>

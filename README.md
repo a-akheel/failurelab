@@ -1,4 +1,4 @@
-# Agent Evaluation and Failure Analysis Platform
+# FailureLab
 
 A **Python evaluation harness and React/Vite dashboard** for replaying enterprise support scenarios, injecting tool failures, comparing agent configurations, and enforcing release thresholds.
 
@@ -90,6 +90,6 @@ Grounding checks evidence provenance, not the truth of every sentence. Policy ch
 
 Add fixtures in `scenarios/support.json`. Implement the `Agent` protocol to evaluate a different agent. Keep tool calls inside `ToolSandbox` so permissions and traces remain observable. Add thresholds in configuration; unknown or empty threshold sets fail closed. Results retain raw model text for debugging, so do not publish reports containing private support requests.
 
-Companion project: [Enterprise IT Operations Agent](https://github.com/a-akheel/enterprise-it-operations-agent). This harness evaluates its own support-agent adapters; it does not claim end-to-end coverage of the companion Kotlin service.
+Companion project: [DeskPilot](https://github.com/a-akheel/deskpilot). This harness evaluates its own support-agent adapters; it does not claim end-to-end coverage of the companion Kotlin service.
 
 Reference: [Portkey gateway](https://github.com/Portkey-AI/gateway). MIT licensed.
