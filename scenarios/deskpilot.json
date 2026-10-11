@@ -1,0 +1,307 @@
+[
+  {
+    "id": "vpn-approved",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    }
+  },
+  {
+    "id": "email-approved",
+    "request": {
+      "service": "email",
+      "description": "The shared mailbox cannot send messages."
+    },
+    "fixture": {
+      "service": "email",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    }
+  },
+  {
+    "id": "helpdesk-approved",
+    "request": {
+      "service": "helpdesk",
+      "description": "Ticket portal requests fail."
+    },
+    "fixture": {
+      "service": "helpdesk",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    }
+  },
+  {
+    "id": "operator-rejects",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "rejected",
+      "actions": 0
+    },
+    "approve": false
+  },
+  {
+    "id": "duplicate-approval",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    },
+    "duplicate_approval": true
+  },
+  {
+    "id": "transient-read-recovers",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "transient",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1,
+      "reads": 3
+    }
+  },
+  {
+    "id": "timeout-budget-exhausted",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "timeout",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "failed",
+      "actions": 0,
+      "reads": 3
+    }
+  },
+  {
+    "id": "authorization-not-retried",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "unauthorized",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "failed",
+      "actions": 0,
+      "reads": 1
+    }
+  },
+  {
+    "id": "malformed-context",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "malformed",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "failed",
+      "actions": 0,
+      "reads": 1
+    }
+  },
+  {
+    "id": "injected-monitor-note",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "injection",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    }
+  },
+  {
+    "id": "lost-action-response",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "lost_response",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "completed",
+      "actions": 1
+    }
+  },
+  {
+    "id": "already-healthy",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "healthy",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "escalated",
+      "actions": 0
+    }
+  },
+  {
+    "id": "stale-at-investigation",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 7200
+    },
+    "expected": {
+      "status": "escalated",
+      "actions": 0
+    }
+  },
+  {
+    "id": "evidence-changed-after-approval",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "stale_approval",
+      "actions": 0
+    },
+    "before_approval": {
+      "service": "vpn",
+      "status": "degraded",
+      "revision": "v2"
+    }
+  },
+  {
+    "id": "evidence-aged-before-approval",
+    "request": {
+      "service": "vpn",
+      "description": "Remote access disconnects during support calls."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "stale_approval",
+      "actions": 0
+    },
+    "before_approval": {
+      "service": "vpn",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 7200
+    }
+  },
+  {
+    "id": "ambiguous-service",
+    "request": {
+      "service": "",
+      "description": "Something is broken; please investigate."
+    },
+    "fixture": {
+      "service": "vpn",
+      "fault": "none",
+      "status": "degraded",
+      "revision": "v1",
+      "ageSeconds": 0
+    },
+    "expected": {
+      "status": "escalated",
+      "actions": 0
+    }
+  }
+]
