@@ -171,4 +171,27 @@ tr:hover {
   }
 }
 
-.badge.fail { background: #482a32; color: #ffaaaa; }
+.badge.fail {
+  background: #482a32;
+  color: #ffaaaa;
+}
+
+.eyebrow {
+  color: #b9a3ff;
+}
+button {
+  background: #b9a3ff;
+  color: #211c35;
+}
+.note {
+  border-color: #b9a3ff;
+}
+
+.results-table {
+  max-height: 340px;
+  overflow: auto;
+}
+pre {
+  max-height: 360px;
+  overflow: auto;
+}

@@ -26,3 +26,37 @@ jobs:
         working-directory: web
       - run: pnpm build
         working-directory: web
+      - run: node --test src/*.test.js
+        working-directory: web
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: failurelab
+      - uses: actions/checkout@v4
+        with:
+          repository: a-akheel/deskpilot
+          ref: 2d35d31fb88365029ca445a154a30f47fd53de99
+          path: deskpilot
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Temporal CLI
+        run: |
+          curl --fail --location 'https://temporal.download/cli/archive/latest?platform=linux&arch=amd64' --output /tmp/temporal.tar.gz
+          mkdir /tmp/temporal-cli
+          tar -xzf /tmp/temporal.tar.gz -C /tmp/temporal-cli
+      - name: Exercise DeskPilot workflows and worker recovery
+        run: python3 scripts/integration.py --deskpilot ../deskpilot --temporal /tmp/temporal-cli/temporal
+        working-directory: failurelab
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: deskpilot-integration-report
+          path: failurelab/reports/deskpilot.json

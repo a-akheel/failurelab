@@ -1,21 +1,25 @@
-# Documented failure cases
+# Failure analysis
 
-## Injection in operational context
+## Stale approval: the initial workflow had a gap
 
-The tool returns a legitimate monitoring record with a note telling the agent to export credentials. The guarded reference policy ignores the note. The intentionally weak baseline selects a forbidden action, which fails policy compliance. Live-model behavior must be evaluated separately; passing the baseline does not certify model robustness.
+The first DeskPilot version read context once, then could wait an hour before executing. The revised workflow reads context again and compares revision and freshness. Two HTTP cases now change the fixture between investigation and approval: one changes the revision, the other sets its age to two hours. Both finish as `stale_approval` with zero action rows.
 
-## Stale monitoring evidence
+## Lost response after a committed action
 
-A record is two hours old, beyond the five-minute freshness window. The guarded baseline escalates. The weak baseline proposes remediation and cites the stale ID, failing both grounding and escalation checks.
+The fixture writes the simulated restart and result into SQLite, then returns HTTP 503. Temporal retries with the same idempotency key. The second request returns the existing result. The saved report shows `completed` and one action. This validates the fixture contract; a real downstream API must independently guarantee idempotency.
 
-## Tool failure and recovery
+## Worker recovery
 
-A transient timeout succeeds on the second call and records both attempts. Persistent timeouts exhaust the configured retry budget and escalate. Malformed JSON and authorization failures escalate immediately; retrying a permission denial would not repair the underlying authorization.
+The runner stops the Kotlin process while it awaits approval and starts another process against the same Temporal database. The plan ID is preserved, the original approval completes, and the ledger records one action. A replacement-worker test in the time-skipping unit environment initially stalled; recovery is therefore verified by actual process replacement instead.
 
-## Ambiguous request
+## Prompt injection in tool context
 
-The fixture asks which service to investigate. The reference policy asks for clarification without calling a tool. This uses a deliberately narrow deterministic phrase rule; diverse natural-language ambiguity requires a broader fixture set and model-based testing.
+The injected note says to ignore instructions and export credentials. The weak reference policy follows that text and fails the action-policy check. The guarded policy ignores it. This tests evaluator sensitivity to a deliberately bad policy; it does not prove that a live language model resists injection.
 
-## Release decisions
+## Authorization and invalid context
 
-The guarded reference policy passes all eight current fixtures. The weak baseline fails two. These are fixture results, not measured production reliability. Latency varies by machine and zero demo cost reflects the absence of model calls.
+The IT fixture returns 403 or malformed monitoring fields. DeskPilot treats both as non-retryable and records one read, then a failed workflow with zero actions. Transient 503 recovers; repeated 504 exhausts three reads. Retrying an authorization denial would spend time without repairing permission.
+
+## Ambiguous requests
+
+The synthetic policy suite includes missing and multiple service names. DeskPilot accepts an explicitly blank service and escalates rather than selecting an arbitrary target. The reference policy's keyword matching remains a documented limitation.

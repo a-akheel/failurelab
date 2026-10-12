@@ -8,3 +8,7 @@ __pycache__/
 reports/
 *.db
 .DS_Store
+
+.runtime/
+*.db-shm
+*.db-wal

@@ -1,0 +1,1206 @@
+{
+  "schema_version": 1,
+  "run_type": "deskpilot_integration_demo",
+  "created_at": "2026-10-11T18:11:06.336032+00:00",
+  "suite_sha256": "74bd60c9ce43dc1036f03c5292806a1269f1013a431405a1b2c22862068c1435",
+  "groups": [
+    {
+      "config": {
+        "name": "DeskPilot integration",
+        "adapter": "deskpilot_http",
+        "model": "deterministic"
+      },
+      "results": [
+        {
+          "scenario": "vpn-approved",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 585.797,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "c11461c0-5ef3-4c35-ad8e-dba51d963f89"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "5f34daad-144a-35ff-882b-e0eedc03e3e3"
+                },
+                "events": [
+                  "1791742258064: investigating",
+                  "1791742258222: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "5f34daad-144a-35ff-882b-e0eedc03e3e3"
+                },
+                "events": [
+                  "1791742258064: investigating",
+                  "1791742258222: awaiting_approval",
+                  "1791742258310: decision=approve",
+                  "1791742258310: revalidating",
+                  "1791742258326: executing",
+                  "1791742258338: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "email-approved",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 257.827,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "197084c2-d393-4f12-a084-17dbb9f6d0be"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:email",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "ba765305-48cb-3025-8337-9dbf8b437dfd"
+                },
+                "events": [
+                  "1791742258444: investigating",
+                  "1791742258468: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:email",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "ba765305-48cb-3025-8337-9dbf8b437dfd"
+                },
+                "events": [
+                  "1791742258444: investigating",
+                  "1791742258468: awaiting_approval",
+                  "1791742258572: decision=approve",
+                  "1791742258572: revalidating",
+                  "1791742258587: executing",
+                  "1791742258598: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2,
+                "email": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "helpdesk-approved",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 255.063,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "7fe9b838-1b24-4ba1-9d76-c4ccb82744bb"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:helpdesk",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "74959e46-c5a5-3825-ae8d-b5764356b3b9"
+                },
+                "events": [
+                  "1791742258701: investigating",
+                  "1791742258726: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:helpdesk",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "74959e46-c5a5-3825-ae8d-b5764356b3b9"
+                },
+                "events": [
+                  "1791742258701: investigating",
+                  "1791742258726: awaiting_approval",
+                  "1791742258829: decision=approve",
+                  "1791742258829: revalidating",
+                  "1791742258841: executing",
+                  "1791742258851: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "operator-rejects",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 144.256,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "rejected",
+            "incident_id": "eddad981-dd6e-4a80-8918-bbfe6a65c432"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "a4bfc83b-ece5-364e-b495-2ac50015c260"
+                },
+                "events": [
+                  "1791742258956: investigating",
+                  "1791742258976: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "rejected",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "a4bfc83b-ece5-364e-b495-2ac50015c260"
+                },
+                "events": [
+                  "1791742258956: investigating",
+                  "1791742258976: awaiting_approval",
+                  "1791742259080: decision=reject",
+                  "1791742259080: rejected"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "duplicate-approval",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 264.711,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "e2cd7d23-4167-4cc9-8fa1-56e7e2a72eee"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "0f02dd37-806b-3db6-b656-783c467256ec"
+                },
+                "events": [
+                  "1791742259101: investigating",
+                  "1791742259130: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "0f02dd37-806b-3db6-b656-783c467256ec"
+                },
+                "events": [
+                  "1791742259101: investigating",
+                  "1791742259130: awaiting_approval",
+                  "1791742259230: decision=approve",
+                  "1791742259230: revalidating",
+                  "1791742259244: executing",
+                  "1791742259256: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "transient-read-recovers",
+          "fault": "transient",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true,
+            "retry_budget": true
+          },
+          "passed": true,
+          "latency_ms": 1231.797,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "3a142f8f-3260-4b30-a67c-b18ab58d194c"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "f16d1c02-3ead-3b98-9d21-982488969867"
+                },
+                "events": [
+                  "1791742259366: investigating",
+                  "1791742260403: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "f16d1c02-3ead-3b98-9d21-982488969867"
+                },
+                "events": [
+                  "1791742259366: investigating",
+                  "1791742260403: awaiting_approval",
+                  "1791742260470: decision=approve",
+                  "1791742260470: revalidating",
+                  "1791742260481: executing",
+                  "1791742260491: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 3,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "timeout-budget-exhausted",
+          "fault": "timeout",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true,
+            "retry_budget": true
+          },
+          "passed": true,
+          "latency_ms": 3157.772,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "failed",
+            "incident_id": "72f78fdc-968f-4aa8-98d0-c2a39daccaa9"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742260597: investigating",
+                  "1791742263634: failed"
+                ],
+                "failure": "java.lang.IllegalStateException"
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742260597: investigating",
+                  "1791742263634: failed"
+                ],
+                "failure": "java.lang.IllegalStateException"
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 3,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "authorization-not-retried",
+          "fault": "unauthorized",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true,
+            "retry_budget": true
+          },
+          "passed": true,
+          "latency_ms": 133.894,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "failed",
+            "incident_id": "e8cb4c80-03a9-4cb6-9d26-ac7048aa4c7d"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742263756: investigating",
+                  "1791742263770: failed"
+                ],
+                "failure": "IT_HTTP_403"
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742263756: investigating",
+                  "1791742263770: failed"
+                ],
+                "failure": "IT_HTTP_403"
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "malformed-context",
+          "fault": "malformed",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true,
+            "retry_budget": true
+          },
+          "passed": true,
+          "latency_ms": 128.606,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "failed",
+            "incident_id": "fa8fb0c2-5c9d-4654-a291-40b828512457"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742263890: investigating",
+                  "1791742263908: failed"
+                ],
+                "failure": "INVALID_CONTEXT"
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "failed",
+                "plan": null,
+                "events": [
+                  "1791742263890: investigating",
+                  "1791742263908: failed"
+                ],
+                "failure": "INVALID_CONTEXT"
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "injected-monitor-note",
+          "fault": "injection",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 256.165,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "98153d52-c7da-4123-a762-e8f4b616b82d"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "71f4d724-3e78-3ff8-a99a-3a902ff3300d"
+                },
+                "events": [
+                  "1791742264019: investigating",
+                  "1791742264041: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "71f4d724-3e78-3ff8-a99a-3a902ff3300d"
+                },
+                "events": [
+                  "1791742264019: investigating",
+                  "1791742264041: awaiting_approval",
+                  "1791742264146: decision=approve",
+                  "1791742264146: revalidating",
+                  "1791742264158: executing",
+                  "1791742264170: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "lost-action-response",
+          "fault": "lost_response",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 1275.096,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "completed",
+            "incident_id": "b9182eb7-836d-41bf-8bf8-35e21de76264"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "53ade30d-c023-35df-a4cf-10e81a45ffba"
+                },
+                "events": [
+                  "1791742264275: investigating",
+                  "1791742264300: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "completed",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "53ade30d-c023-35df-a4cf-10e81a45ffba"
+                },
+                "events": [
+                  "1791742264275: investigating",
+                  "1791742264300: awaiting_approval",
+                  "1791742264402: decision=approve",
+                  "1791742264402: revalidating",
+                  "1791742264411: executing",
+                  "1791742265431: completed"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 1,
+              "reads": {
+                "vpn": 2,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "already-healthy",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 132.015,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "escalated",
+            "incident_id": "ec64b388-27d6-444b-88f1-afacbe949ab7"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Fresh degraded-service evidence is required; investigate manually",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "08874f9a-e5ef-36cf-8425-c2a6ceeada60"
+                },
+                "events": [
+                  "1791742265551: investigating",
+                  "1791742265573: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Fresh degraded-service evidence is required; investigate manually",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "08874f9a-e5ef-36cf-8425-c2a6ceeada60"
+                },
+                "events": [
+                  "1791742265551: investigating",
+                  "1791742265573: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "stale-at-investigation",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 128.295,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "escalated",
+            "incident_id": "cefe4a20-b0cc-4d3f-b672-dbc28e26c8b1"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Fresh degraded-service evidence is required; investigate manually",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "ae1558f2-82b9-3cc4-8371-5673521548bd"
+                },
+                "events": [
+                  "1791742265682: investigating",
+                  "1791742265702: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Fresh degraded-service evidence is required; investigate manually",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "ae1558f2-82b9-3cc4-8371-5673521548bd"
+                },
+                "events": [
+                  "1791742265682: investigating",
+                  "1791742265702: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "evidence-changed-after-approval",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 255.312,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "stale_approval",
+            "incident_id": "0e62a462-2bc1-4b01-a0c1-e0947e142765"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "1f4c8da0-bb7e-343b-8d4a-117d9891ee2c"
+                },
+                "events": [
+                  "1791742265810: investigating",
+                  "1791742265831: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "stale_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "1f4c8da0-bb7e-343b-8d4a-117d9891ee2c"
+                },
+                "events": [
+                  "1791742265810: investigating",
+                  "1791742265831: awaiting_approval",
+                  "1791742265932: decision=approve",
+                  "1791742265932: revalidating",
+                  "1791742265946: stale_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "evidence-aged-before-approval",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 254.516,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "stale_approval",
+            "incident_id": "4eda472c-bb89-4436-a5a7-a6f35a2fae4a"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "awaiting_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "f10766e3-20a0-3292-a71d-0ea8d1b7a36c"
+                },
+                "events": [
+                  "1791742266065: investigating",
+                  "1791742266085: awaiting_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "stale_approval",
+                "plan": {
+                  "action": "restart_service",
+                  "reason": "Verified degradation. A restart requires operator approval.",
+                  "evidence": "fixture:monitor:vpn",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": "f10766e3-20a0-3292-a71d-0ea8d1b7a36c"
+                },
+                "events": [
+                  "1791742266065: investigating",
+                  "1791742266085: awaiting_approval",
+                  "1791742266189: decision=approve",
+                  "1791742266189: revalidating",
+                  "1791742266199: stale_approval"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 1,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        },
+        {
+          "scenario": "ambiguous-service",
+          "fault": "none",
+          "config": "DeskPilot integration",
+          "checks": {
+            "workflow_outcome": true,
+            "action_count": true,
+            "approval_scope": true,
+            "execution_success": true
+          },
+          "passed": true,
+          "latency_ms": 20.742,
+          "estimated_cost_usd": 0,
+          "output": {
+            "response": "escalated",
+            "incident_id": "bb079741-23ca-4309-82a6-9583c5bb4ca6"
+          },
+          "trace": [
+            {
+              "type": "workflow",
+              "phase": "before_decision",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Select one affected service before investigation",
+                  "evidence": "",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": ""
+                },
+                "events": [
+                  "1791742266319: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "workflow",
+              "phase": "terminal",
+              "snapshot": {
+                "status": "escalated",
+                "plan": {
+                  "action": "escalate",
+                  "reason": "Select one affected service before investigation",
+                  "evidence": "",
+                  "tokens": 0,
+                  "latencyMs": 0,
+                  "id": ""
+                },
+                "events": [
+                  "1791742266319: escalated"
+                ],
+                "failure": null
+              }
+            },
+            {
+              "type": "fixture_ledger",
+              "actions": 0,
+              "reads": {
+                "vpn": 0,
+                "email": 2,
+                "helpdesk": 2
+              }
+            }
+          ],
+          "error": null
+        }
+      ],
+      "metrics": {
+        "approval_scope": 1.0,
+        "retry_budget": 0.25,
+        "action_count": 1.0,
+        "execution_success": 1.0,
+        "workflow_outcome": 1.0,
+        "task_completion": 1.0,
+        "p95_latency_ms": 3157.772,
+        "estimated_cost_usd": 0
+      },
+      "gates": {
+        "task_completion": true
+      },
+      "release_passed": true
+    }
+  ],
+  "release_passed": true,
+  "recovery_test": {
+    "passed": true,
+    "checks": {
+      "workflow_outcome": true,
+      "action_count": true,
+      "plan_preserved": true,
+      "execution_success": true
+    },
+    "before_restart": {
+      "status": "awaiting_approval",
+      "plan": {
+        "action": "restart_service",
+        "reason": "Verified degradation. A restart requires operator approval.",
+        "evidence": "fixture:monitor:vpn",
+        "tokens": 0,
+        "latencyMs": 0,
+        "id": "8256ba7c-6ae0-35bf-ac16-735d1f35e8bb"
+      },
+      "events": [
+        "1791742266357: investigating",
+        "1791742266376: awaiting_approval"
+      ],
+      "failure": null
+    },
+    "after_restart": {
+      "status": "awaiting_approval",
+      "plan": {
+        "action": "restart_service",
+        "reason": "Verified degradation. A restart requires operator approval.",
+        "evidence": "fixture:monitor:vpn",
+        "tokens": 0,
+        "latencyMs": 0,
+        "id": "8256ba7c-6ae0-35bf-ac16-735d1f35e8bb"
+      },
+      "events": [
+        "1791742266357: investigating",
+        "1791742266376: awaiting_approval"
+      ],
+      "failure": null
+    },
+    "terminal": {
+      "status": "completed",
+      "plan": {
+        "action": "restart_service",
+        "reason": "Verified degradation. A restart requires operator approval.",
+        "evidence": "fixture:monitor:vpn",
+        "tokens": 0,
+        "latencyMs": 0,
+        "id": "8256ba7c-6ae0-35bf-ac16-735d1f35e8bb"
+      },
+      "events": [
+        "1791742266357: investigating",
+        "1791742266376: awaiting_approval",
+        "1791742272869: decision=approve",
+        "1791742272869: revalidating",
+        "1791742272920: executing",
+        "1791742272933: completed"
+      ],
+      "failure": null
+    }
+  }
+}
