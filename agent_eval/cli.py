@@ -10,11 +10,15 @@ def main():
     parser.add_argument("--suite", default="scenarios/support.json")
     parser.add_argument("--config", default="configs/baseline.json")
     parser.add_argument("--output", default="reports/latest.json")
+    parser.add_argument("--repeats", type=int, default=1)
     args = parser.parse_args()
     spec = json.loads(Path(args.config).read_text())
     scenarios = [Scenario(**row) for row in json.loads(Path(args.suite).read_text())]
     report = run_suite(
-        scenarios, [Config(**row) for row in spec["configurations"]], spec["thresholds"]
+        scenarios,
+        [Config(**row) for row in spec["configurations"]],
+        spec["thresholds"],
+        repeats=args.repeats,
     )
     path = Path(args.output)
     path.parent.mkdir(parents=True, exist_ok=True)

@@ -19,10 +19,12 @@ export function validateReport(value) {
     for (const key of [
       "task_completion",
       "p95_latency_ms",
-      "estimated_cost_usd",
+
     ])
       if (!Number.isFinite(group.metrics[key]))
         throw Error("Invalid report metric: " + key);
+    if (group.metrics.estimated_cost_usd !== null && !Number.isFinite(group.metrics.estimated_cost_usd))
+      throw Error("Invalid cost metric");
     if (!Object.values(group.gates).every((x) => typeof x === "boolean"))
       throw Error("Invalid release gates");
     for (const row of group.results)

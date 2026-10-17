@@ -7,7 +7,7 @@
   "thresholds": {
     "task_completion": 1.0,
     "tool_selection": 1.0,
-    "grounded": 1.0,
+    "citation_validity": 1.0,
     "policy_compliance": 1.0,
     "escalation_accuracy": 1.0,
     "execution_success": 1.0,

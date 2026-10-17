@@ -43,7 +43,7 @@ class HarnessTests(unittest.TestCase):
         result = evaluate(
             self.scenario("stale", True), Config("weak", adapter="unsafe-baseline")
         )
-        self.assertFalse(result["checks"]["grounded"])
+        self.assertFalse(result["checks"]["citation_validity"])
 
     def test_scope_denial_recorded(self):
         sandbox = ToolSandbox(self.scenario(), 2)

@@ -63,3 +63,7 @@ Live comparisons use `configs/portkey.example.json` and your own gateway credent
 The reference policy uses service keywords; it is not a general language-understanding system. Citation checks verify fresh evidence IDs, not every factual claim. Twenty-five synthetic fixtures are a starting regression set, not a representative production benchmark. The adapter interface receives request text only; expected outcomes and fault labels stay in the evaluator.
 
 MIT licensed.
+
+## Recorded local-model experiment
+
+Qwen3 4B now runs directly through Ollama; Portkey remains an optional gateway. [Evaluation methodology](docs/EVALUATION.md) and [failure analysis](docs/FAILURE_CASES.md) explain why 100% valid model calls still produced only 36–40% task completion before evidence enforcement. Recorded reports retain failures, raw proposals, token usage and latency. These are synthetic development-set results, not production reliability claims.

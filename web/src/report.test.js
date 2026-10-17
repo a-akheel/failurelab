@@ -25,3 +25,11 @@ test("a finite versioned report loads", () => {
   value.groups[0].metrics.p95_latency_ms = "bad";
   assert.throws(() => validateReport(value));
 });
+test("unknown cost is displayed without pretending it is zero", () => {
+  const report = {schema_version: 1, groups: [{config: {name: "partial usage"},
+    metrics: {task_completion: 0, p95_latency_ms: 12, estimated_cost_usd: null},
+    gates: {cost: false}, results: []}]};
+  assert.equal(validateReport(report), report);
+  report.groups[0].metrics.estimated_cost_usd = "unknown";
+  assert.throws(() => validateReport(report));
+});
