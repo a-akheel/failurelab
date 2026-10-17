@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: a-akheel/deskpilot
-          ref: 2d35d31fb88365029ca445a154a30f47fd53de99
+          ref: 110569c92fc60e6b3656d3474eccc59622355e68
           path: deskpilot
       - uses: actions/setup-java@v4
         with:
