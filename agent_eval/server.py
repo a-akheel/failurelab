@@ -28,6 +28,8 @@ class Handler(BaseHTTPRequestHandler):
             report = demo()
         elif self.path == "/api/integration-report":
             report = json.loads((ROOT / "examples/deskpilot-report.json").read_text())
+        elif self.path == "/api/model-report":
+            report = json.loads((ROOT / "examples/qwen3-comparison.json").read_text())
         else:
             self.send_error(404)
             return

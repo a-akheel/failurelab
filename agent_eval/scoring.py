@@ -13,7 +13,11 @@ def summarize(results: list[dict], thresholds: dict) -> dict:
     metrics["p95_latency_ms"] = sorted(row["latency_ms"] for row in results)[
         max(0, math.ceil(0.95 * len(results)) - 1)
     ]
-    metrics["estimated_cost_usd"] = sum(row["estimated_cost_usd"] for row in results)
+    metrics["estimated_cost_usd"] = (
+        sum(row["estimated_cost_usd"] for row in results)
+        if all(row["estimated_cost_usd"] is not None for row in results)
+        else None
+    )
     if not thresholds:
         raise ValueError("at least one release threshold required")
     for name, value in thresholds.items():
@@ -26,7 +30,7 @@ def summarize(results: list[dict], thresholds: dict) -> dict:
             raise ValueError("invalid threshold: " + name)
     gates = {
         name: (
-            metrics[name] <= value
+            metrics[name] is not None and metrics[name] <= value
             if name in {"p95_latency_ms", "estimated_cost_usd"}
             else metrics[name] >= value
         )

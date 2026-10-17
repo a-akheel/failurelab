@@ -23,3 +23,11 @@ The IT fixture returns 403 or malformed monitoring fields. DeskPilot treats both
 ## Ambiguous requests
 
 The synthetic policy suite includes missing and multiple service names. DeskPilot accepts an explicitly blank service and escalates rather than selecting an arbitrary target. The reference policy's keyword matching remains a documented limitation.
+
+## Live Qwen3: successful API calls are not successful tasks
+
+The original free-form JSON prompt produced outputs that did not match the adapter contract. `examples/qwen3-before-schema.json` preserves that failure. Explicit tool-selection and final-response schemas brought execution success to 100% across 50 trials per configuration, but task completion remained 36% for the baseline and 40% for the explicit-policy prompt. Both still failed the release gates.
+
+Post-generation evidence enforcement blocks proposals without fresh, valid cited evidence. Across 50 trials it reached 84% task completion, 100% citation validity and 96% policy compliance, still failing release gates. It improves system outcomes, but ambiguous requests still produce unjustified service choices, including a scope-denied call. See `examples/qwen3-guarded.json` for the repeated run. This is a useful distinction: schemas fix integration reliability, evidence checks constrain proposals, and neither proves correct intent interpretation or semantic grounding.
+
+The next independent evaluation should include unseen paraphrases and explicit clarification choices, rather than tuning the current fixtures until they all pass.

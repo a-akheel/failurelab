@@ -17,7 +17,7 @@ function App() {
     queryKey: ["report", source],
     queryFn: async () => {
       const r = await fetch(
-        source === "demo" ? "/api/report" : "/api/integration-report",
+        source === "demo" ? "/api/report" : source === "model" ? "/api/model-report" : "/api/integration-report",
       );
       if (!r.ok) throw Error("Start the evaluation API to load the demo.");
       return validateReport(await r.json());
@@ -83,6 +83,10 @@ function App() {
           >
             DeskPilot integration
           </button>
+          <button className={source === "model" ? "" : "secondary"}
+            onClick={() => { setSource("model"); setUploaded(null); setIndex(0); setSelected(null); }}>
+            Recorded Qwen3 evaluation
+          </button>
         </div>
         {query.isPending && !uploaded && (
           <p role="status">Loading evaluation results…</p>
@@ -100,7 +104,7 @@ function App() {
               {report.run_type === "deskpilot_integration_demo"
                 ? "Recorded HTTP integration run · simulated IT services · no model calls"
                 : report.run_type === "model_evaluation"
-                  ? "Live-model evaluation report"
+                  ? "Recorded model evaluation · synthetic scenarios · citation validity is not factual accuracy"
                   : "Deterministic agent policies · no model calls"}
             </p>
             {report.recovery_test && (
@@ -148,7 +152,7 @@ function App() {
               </div>
               <div className="stat">
                 Estimated inference cost
-                <strong>${metrics.estimated_cost_usd.toFixed(4)}</strong>
+                <strong>{metrics.estimated_cost_usd === null ? "Unknown" : "$" + metrics.estimated_cost_usd.toFixed(4)}</strong>
               </div>
             </div>
             <div className="grid">
@@ -176,7 +180,7 @@ function App() {
                     query.refetch();
                   }}
                 >
-                  {source === "integration"
+                  {source !== "demo"
                     ? "Reload saved run"
                     : "Replay demo"}
                 </button>
@@ -196,14 +200,14 @@ function App() {
                     <tbody>
                       {group.results.map((row) => (
                         <tr
-                          key={row.scenario}
+                          key={row.scenario + ":" + (row.repeat ?? 1)}
                           tabIndex={0}
                           onClick={() => setSelected(row)}
                           onKeyDown={(e) =>
                             e.key === "Enter" && setSelected(row)
                           }
                         >
-                          <td>{row.scenario}</td>
+                          <td>{row.scenario}{report.repeats > 1 ? ` · trial ${row.repeat}` : ""}</td>
                           <td className={row.passed ? "" : "error"}>
                             {row.passed ? "PASS" : "FAIL"}
                           </td>

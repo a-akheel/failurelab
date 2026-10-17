@@ -35,6 +35,7 @@ def main():
             "Install Temporal CLI and provide the DeskPilot checkout with --deskpilot"
         )
     env = dict(os.environ)
+    env["LLM_PROVIDER"] = "demo"
     # Integration reports are always the free deterministic planner, even if the shell has model keys.
     for key in list(env):
         if key.startswith("PORTKEY_"):
